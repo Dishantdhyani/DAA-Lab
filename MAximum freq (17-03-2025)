@@ -1,0 +1,35 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include<map>
+#include<vector>
+#include<algorithm>
+
+using namespace std;
+
+int main() {
+    
+    string arr = "heloogirl";
+    
+    map<char,int>freq;
+    int max = 0;
+    for(char ele : arr){
+        freq[ele]++;
+        if(max < freq[ele])
+            max = freq[ele];
+    }
+    
+    cout<<"frequency of all the alphabets : "<<endl;
+    for(auto i : freq){
+        cout<<i.first<<"->"<<i.second<<endl;
+    }
+    cout<<endl;
+    
+    cout<<"element having highest frequency : "<<endl;
+    for(auto i:freq){
+        if(i.second == max){
+            cout<<i.first<<"->"<<i.second<<endl;
+        }
+    }
+
+    return 0;
+}
