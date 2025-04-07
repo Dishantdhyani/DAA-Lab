@@ -1,0 +1,35 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+pair<int,int> Solve(vector<int>&arr,int key){
+    int s = 0;
+    int e = arr.size()-1;
+    
+    while(s<=e){
+        int sum = arr[s] + arr[e];
+        if(sum == key){
+            return {arr[s],arr[e]};
+        }else if(sum > key){
+            e = e - 1;
+        }else{
+            s = s + 1;
+        }
+    }
+    return {-1,-1};
+}
+
+int main() {
+    vector<int> arr = {1,8,9,7};
+    
+    sort(arr.begin(),arr.end());
+    pair<int,int> res = Solve(arr,17);
+    if(res.first == -1){
+        cout<<"element not found"<<endl;
+    }else{
+        cout<<"element found "<<endl;
+    cout<<"Ele 1 : "<<res.first<<endl;
+    cout<<"Ele 2 : "<<res.second;
+    }
+    return 0;
+}
